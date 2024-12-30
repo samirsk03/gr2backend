@@ -39,6 +39,10 @@ mongoose.connect(process.env.MONGO_URI)
   })
   .catch((err) => console.error(err));
 
+  // main page 
+  app.get("/", (req, res) => {
+    res.send('api is working')   
+  })
 // Routes
 app.use("/api/form", formRoutes);
 app.use("/api/careers", careerRoutes);
