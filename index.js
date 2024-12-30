@@ -41,7 +41,7 @@ mongoose.connect(process.env.MONGO_URI)
 
   // main page 
   app.get("/", (req, res) => {
-    res.send('api is working')   
+    res.send('api is working in kdk condition!!!')   
   })
 // Routes
 app.use("/api/form", formRoutes);
