@@ -21,8 +21,8 @@ app.use(bodyParser.json()); // body-parser usage with ES module
 
 
 
-Connect to MongoDB
-At the MongoDB connection
+// Connect to MongoDB
+// At the MongoDB connection
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
     console.log("MongoDB Connected");
