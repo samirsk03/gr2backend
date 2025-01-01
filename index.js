@@ -10,9 +10,9 @@ import connectToDatabase from "./db/connect.js";
 dotenv.config();
 
 const app = express();
-(async () => {
-  await connectToDatabase(); // Connect to MongoDB
-})();
+// (async () => {
+//   await connectToDatabase(); // Connect to MongoDB
+// })();
 
 // Middleware
 app.use(cors());
@@ -21,30 +21,30 @@ app.use(bodyParser.json()); // body-parser usage with ES module
 
 
 
-// Connect to MongoDB
-// At the MongoDB connection
-// mongoose.connect(process.env.MONGO_URI)
-//   .then(() => {
-//     console.log("MongoDB Connected");
-//     console.log("Current database:", mongoose.connection.db.databaseName);
-//     // List all collections
-//     mongoose.connection.db.listCollections().toArray((err, collections) => {
-//       if (err) {
-//         console.log("Error getting collections:", err);
-//       } else {
-//         console.log("Available collections:", collections.map(c => c.name));
-//       }
-//     });
-//   })
-//   .catch((err) => console.error(err));
+Connect to MongoDB
+At the MongoDB connection
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => {
+    console.log("MongoDB Connected");
+    console.log("Current database:", mongoose.connection.db.databaseName);
+    // List all collections
+    mongoose.connection.db.listCollections().toArray((err, collections) => {
+      if (err) {
+        console.log("Error getting collections:", err);
+      } else {
+        console.log("Available collections:", collections.map(c => c.name));
+      }
+    });
+  })
+  .catch((err) => console.error(err));
 
   // main page 
   app.get("/", (req, res) => {
     res.send('api is working in kdk condition!!!')   
   })
 // Routes
-app.use("/api/form", formRoutes);
-app.use("/api/careers", careerRoutes);
+app.use("/gr2/api/form", formRoutes);
+app.use("/gr2/api/careers", careerRoutes);
 
 // Start Server
 const PORT = process.env.PORT || 5000 ;

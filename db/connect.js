@@ -14,12 +14,9 @@ const connectToDatabase = async () => {
 
   const MONGO_URI = process.env.MONGO_URI; // Get connection string from .env
   try {
-    const db = await mongoose.connect(MONGO_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    const db = await mongoose.connect(MONGO_URI);
     isConnected = db.connections[0].readyState === 1;
-    console.log('MongoDB Connected');
+    console.log('MongoDB Connected ho chuka hai');
   } catch (err) {
     console.error('MongoDB Connection Error:', err);
     throw err; // Stop further execution if the connection fails
