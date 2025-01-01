@@ -21,9 +21,9 @@ app.use(bodyParser.json()); // body-parser usage with ES module
 
 
 
-Connect to MongoDB
-At the MongoDB connection
-mongoose.connect(process.env.MONGO_URI)
+// Connect to MongoDB
+// At the MongoDB connection
+mongoose.connect(process.env.MONGO_URI,{serverSelectionTimeoutMS: 130000 })
   .then(() => {
     console.log("MongoDB Connected");
     console.log("Current database:", mongoose.connection.db.databaseName);
