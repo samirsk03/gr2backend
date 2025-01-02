@@ -1,10 +1,22 @@
-import { Schema, model } from "mongoose";
+import mongoose from "mongoose";
 
-const CareerSchema = new Schema({
-  title: String,
-  description: String,
-  requirements: [String],
-  postedAt: { type: Date, default: Date.now },
+const CareerSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  requirements: {
+    type: [String], // Array of strings
+    default: [],    // Empty array if not provided
+  },
+  postedAt: {
+    type: Date,
+    required: true,
+  },
 });
 
-export default model("Careers", CareerSchema);
+export default mongoose.model("Careers", CareerSchema);

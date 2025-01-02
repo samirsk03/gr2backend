@@ -17,6 +17,9 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(bodyParser.json()); // body-parser usage with ES module
+app.use(express.json()); // Parse JSON request bodies
+app.use(express.urlencoded({ extended: true })); // Parse URL-encoded request bodies
+
 
 
 
