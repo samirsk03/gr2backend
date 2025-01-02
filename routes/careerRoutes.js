@@ -18,11 +18,29 @@ router.get("/", async (req, res) => {
 // POST: Add a Career
 router.post("/", async (req, res) => {
   try {
-    const newCareer = new Career(req.body);
+    console.log("Request body:", req.body); // Log the request body
+
+    const { title, description, requirements, postedAt } = req.body;
+
+    // Validate the required fields
+    if (!title || !description || !postedAt) {
+      return res.status(400).json({
+        error: "Please provide all required fields: title, description, postedAt.",
+      });
+    }
+
+    const newCareer = new Career({
+      title,
+      description,
+      requirements,
+      postedAt,
+    });
+
     await newCareer.save();
-    res.status(201).json({ message: "Career added successfully!" });
-  } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(201).json(newCareer);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Server Error", message: error.message });
   }
 });
 
