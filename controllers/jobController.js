@@ -35,3 +35,14 @@ exports.applyForJob = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+
+// Fetch all contacts
+exports.getAllJobs = async (req, res) => {
+  try {
+    const job = await Job.find().sort({ createdAt: -1 }); // Fetch job sorted by newest first
+    res.status(200).json(job);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
