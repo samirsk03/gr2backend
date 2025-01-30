@@ -6,8 +6,9 @@ const cors = require('cors');
 
 dotenv.config();
 
-const contactRoutes = require("./routes/contactRoutes")
+const contactRoutes = require("./routes/contactRoutes");
 const jobRoutes = require('./routes/jobRoutes');
+const newsRoutes = require('./routes/newsRoutes');
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use('/contacts', contactRoutes);
 app.use('/jobs', jobRoutes);
+app.use('/news', newsRoutes);
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI)

@@ -13,6 +13,7 @@ exports.createJob = async (req, res) => {
 };
 
 // Apply for a job
+// ****need to upload pdf 
 exports.applyForJob = async (req, res) => {
   try {
     const { jobId } = req.params;
